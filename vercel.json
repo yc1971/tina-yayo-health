@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/vercel-entry.ts",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "includeFiles": ["dist/public/**"]
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "server/vercel-entry.ts" },
+    { "src": "/(.*\\.(js|css|ico|png|svg|woff|woff2|ttf|eot))", "dest": "dist/public/$1" },
+    { "src": "/(.*)", "dest": "dist/public/index.html" }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}

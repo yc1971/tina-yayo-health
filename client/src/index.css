@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 4%;
+    --foreground: 210 15% 92%;
+    --card: 210 18% 7%;
+    --card-foreground: 210 15% 92%;
+    --popover: 210 18% 7%;
+    --popover-foreground: 210 15% 92%;
+    --primary: 192 80% 45%;
+    --primary-foreground: 210 20% 4%;
+    --secondary: 210 15% 12%;
+    --secondary-foreground: 210 15% 75%;
+    --muted: 210 15% 10%;
+    --muted-foreground: 210 10% 50%;
+    --accent: 192 80% 45%;
+    --accent-foreground: 210 20% 4%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 15% 14%;
+    --input: 210 15% 12%;
+    --ring: 192 80% 45%;
+    --radius: 0.75rem;
+
+    /* Status colors */
+    --status-normal: 142 76% 36%;
+    --status-high: 38 92% 50%;
+    --status-low: 217 91% 60%;
+    --status-critical: 0 72% 51%;
+    --status-warning: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+
+/* Glass card effect */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Status badge colors */
+.status-normal { color: hsl(142 76% 45%); background: hsl(142 76% 36% / 0.15); border-color: hsl(142 76% 36% / 0.3); }
+.status-high { color: hsl(38 92% 60%); background: hsl(38 92% 50% / 0.15); border-color: hsl(38 92% 50% / 0.3); }
+.status-low { color: hsl(217 91% 70%); background: hsl(217 91% 60% / 0.15); border-color: hsl(217 91% 60% / 0.3); }
+.status-critical { color: hsl(0 72% 65%); background: hsl(0 72% 51% / 0.15); border-color: hsl(0 72% 51% / 0.3); }
+
+/* Glow pulse for critical alerts */
+.glow-critical {
+  box-shadow: 0 0 0 1px hsl(0 72% 51% / 0.4), 0 0 20px hsl(0 72% 51% / 0.1);
+}
+.glow-warning {
+  box-shadow: 0 0 0 1px hsl(38 92% 50% / 0.4), 0 0 20px hsl(38 92% 50% / 0.1);
+}
