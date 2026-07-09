@@ -6,7 +6,7 @@ import {
 } from "@shared/schema";
 
 const SUPABASE_URL = process.env.SUPABASE_URL || "https://iauxhqenkavakilnzhuw.supabase.co";
-const SUPABASE_KEY = process.env.SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlhdXhocWVua2F2YWtpbG56aHV3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM1ODU0NDQsImV4cCI6MjA5OTE2MTQ0NH0.ZuLPKpvYRtA3CExwgDayOi12xFaPqk63smHfz73rjhM";
+const SUPABASE_KEY = process.env.SUPABASE_ANON_KEY || "";
 
 function sbHeaders() {
   return {
