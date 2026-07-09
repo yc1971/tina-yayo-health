@@ -5,12 +5,15 @@ import { rm, readFile } from "node:fs/promises";
 // server deps to bundle to reduce openat(2) syscalls
 // which helps cold start times
 const allowlist = [
+  "@anthropic-ai/sdk",
+  "@supabase/supabase-js",
   "@google/generative-ai",
   "axios",
   "cors",
   "date-fns",
   "drizzle-orm",
   "drizzle-zod",
+  "dotenv",
   "express",
   "express-rate-limit",
   "express-session",

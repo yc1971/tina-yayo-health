@@ -1,22 +1,18 @@
-FROM node:20-slim AS builder
+FROM node:20-slim
 
 WORKDIR /app
 
-COPY package*.json ./
+# Copy everything
+COPY . .
+
+# Install ALL dependencies (including dev for build)
 RUN npm ci
 
-COPY . .
+# Build the app
 RUN npm run build
 
-# Production stage - lean image
-FROM node:20-slim AS runner
-
-WORKDIR /app
-
-# Copy only what's needed to run
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
-COPY package*.json ./
+# Clean dev dependencies after build
+RUN npm prune --omit=dev
 
 ENV NODE_ENV=production
 
