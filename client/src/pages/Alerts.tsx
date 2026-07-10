@@ -65,11 +65,11 @@ export default function Alerts() {
   const critical = alerts.filter(a => !a.resolved && a.type === "critical").length;
 
   return (
-    <div className="p-8 space-y-6">
+    <div className="p-4 md:p-8 space-y-5 md:space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <div className="flex items-center gap-3">
-            <h1 className="text-xl font-semibold text-foreground">Alertas — {patientLabel}</h1>
+            <h1 className="text-lg md:text-xl font-semibold text-foreground">Alertas — {patientLabel}</h1>
             <span className={`text-xs px-2.5 py-1 rounded-full font-medium border ${
               isYayo
                 ? "bg-blue-500/10 text-blue-400 border-blue-500/20"

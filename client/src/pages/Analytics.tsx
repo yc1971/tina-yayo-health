@@ -87,9 +87,9 @@ export default function Analytics() {
 
   if (isLoading) {
     return (
-      <div className="p-8 space-y-6">
+      <div className="p-4 md:p-8 space-y-5 md:space-y-6">
         <Skeleton className="h-10 w-48" />
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {Array.from({ length: 4 }).map((_, i) => <Skeleton key={i} className="h-72 rounded-xl" />)}
         </div>
       </div>
@@ -99,9 +99,9 @@ export default function Analytics() {
   const hasData = studies.length > 0;
 
   return (
-    <div className="p-8 space-y-6">
+    <div className="p-4 md:p-8 space-y-5 md:space-y-6">
       <div>
-        <h1 className="text-xl font-semibold text-foreground">Análisis & Tendencias</h1>
+        <h1 className="text-lg md:text-xl font-semibold text-foreground">Análisis & Tendencias</h1>
         <p className="text-sm text-muted-foreground mt-1">Visualización histórica de tus estudios y marcadores</p>
       </div>
 
@@ -111,7 +111,7 @@ export default function Analytics() {
           <p className="text-muted-foreground">Agrega estudios para ver análisis y tendencias</p>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {/* Studies over time */}
           <div className="glass rounded-xl p-6 col-span-2">
             <div className="flex items-center gap-2 mb-5">

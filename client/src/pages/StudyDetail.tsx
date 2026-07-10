@@ -74,7 +74,7 @@ export default function StudyDetail() {
 
   if (isLoading) {
     return (
-      <div className="p-8 space-y-6">
+      <div className="p-4 md:p-8 space-y-5 md:space-y-6">
         <Skeleton className="h-10 w-64" />
         <Skeleton className="h-40 rounded-xl" />
         <Skeleton className="h-64 rounded-xl" />
@@ -84,7 +84,7 @@ export default function StudyDetail() {
 
   if (!study) {
     return (
-      <div className="p-8 text-center text-muted-foreground">
+      <div className="p-6 text-center text-muted-foreground">
         <p>Estudio no encontrado</p>
         <Link href="/studies"><span className="text-primary text-sm mt-2 hover:underline cursor-pointer">Volver a estudios</span></Link>
       </div>
@@ -97,7 +97,7 @@ export default function StudyDetail() {
   const abnormal = labResults.filter((r: any) => r.status !== "normal");
 
   return (
-    <div className="p-8 max-w-4xl mx-auto space-y-6">
+    <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-5 md:space-y-6">
       {/* Header */}
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-4">
@@ -111,7 +111,7 @@ export default function StudyDetail() {
               <Icon className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h1 className="text-xl font-semibold text-foreground">{study.title}</h1>
+              <h1 className="text-lg md:text-xl font-semibold text-foreground">{study.title}</h1>
               <div className="text-sm text-muted-foreground flex items-center gap-2 mt-0.5">
                 <Badge variant="outline" className="text-xs">{categoryLabelMap[study.category]}</Badge>
                 <span>·</span>
@@ -134,7 +134,7 @@ export default function StudyDetail() {
       </div>
 
       {/* Info card */}
-      <div className="glass rounded-xl p-6 grid grid-cols-3 gap-6">
+      <div className="glass rounded-xl p-4 md:p-6 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
         {[
           { label: "Instalación", value: study.facility || "—" },
           { label: "Doctor", value: study.doctor ? `Dr. ${study.doctor}` : "—" },

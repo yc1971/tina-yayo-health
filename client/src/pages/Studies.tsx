@@ -41,11 +41,11 @@ export default function Studies() {
   });
 
   return (
-    <div className="p-8 space-y-6">
-      <div className="flex items-center justify-between">
+    <div className="p-4 md:p-8 space-y-5 md:space-y-6">
+      <div className="flex items-start md:items-center justify-between gap-3">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-xl font-semibold text-foreground">Estudios — {patientLabel}</h1>
+          <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-1">
+            <h1 className="text-lg md:text-xl font-semibold text-foreground">Estudios — {patientLabel}</h1>
             <span className={`text-xs px-2.5 py-1 rounded-full font-medium border ${
               isYayo
                 ? "bg-blue-500/10 text-blue-400 border-blue-500/20"
@@ -63,7 +63,7 @@ export default function Studies() {
       </div>
 
       {/* Filters */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-1">
         <div className="relative flex-1 max-w-xs">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
@@ -116,13 +116,13 @@ export default function Studies() {
               <Link key={study.id} href={`/studies/${study.id}`}>
                 <div
                   data-testid={`study-item-${study.id}`}
-                  className="glass rounded-xl p-5 flex items-center gap-5 hover:border-primary/20 transition-colors cursor-pointer group"
+                  className="glass rounded-xl p-3.5 md:p-5 flex items-center gap-3 md:gap-5 hover:border-primary/20 transition-colors cursor-pointer group"
                 >
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${cat.color}`}>
+                  <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${cat.color}`}>
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-1">
                       <span className="text-sm font-semibold text-foreground">{displayTitle}</span>
                       <Badge variant="outline" className="text-xs">{cat.label}</Badge>
                     </div>

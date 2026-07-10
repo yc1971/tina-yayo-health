@@ -169,7 +169,7 @@ export default function Expert() {
             </div>
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-xl font-semibold text-foreground">Dr. FunctionalMD — {patientLabel}</h1>
+                <h1 className="text-lg md:text-xl font-semibold text-foreground">Dr. FunctionalMD — {patientLabel}</h1>
                 <span className={`text-xs px-2.5 py-1 rounded-full font-medium border ${
                   isYayo
                     ? "bg-blue-500/10 text-blue-400 border-blue-500/20"
@@ -195,11 +195,11 @@ export default function Expert() {
       </div>
 
       <div className="flex-1 overflow-y-auto">
-        <div className="p-8 space-y-6 max-w-4xl mx-auto">
+        <div className="p-4 md:p-8 space-y-5 md:space-y-6 max-w-4xl mx-auto">
 
           {/* Empty state — no analysis yet */}
           {!hasAnalysis && !analysisInProgress && !streamError && (
-            <div className="glass rounded-xl p-8 text-center border border-primary/10">
+            <div className="glass rounded-xl p-5 md:p-8 text-center border border-primary/10">
               <Brain className={`w-12 h-12 mx-auto mb-4 ${
                 isYayo ? "text-blue-400/40" : "text-pink-400/40"
               }`} />
@@ -219,7 +219,7 @@ export default function Expert() {
 
           {/* Error state */}
           {streamError && (
-            <div className="glass rounded-xl p-6 border border-red-500/20 text-center">
+            <div className="glass rounded-xl p-4 md:p-6 border border-red-500/20 text-center">
               <p className="text-red-400 text-sm mb-3">Error: {streamError}</p>
               <Button onClick={startStreamingAnalysis} variant="outline" size="sm" className="gap-2">
                 <RefreshCw className="w-3.5 h-3.5" /> Reintentar
@@ -232,7 +232,7 @@ export default function Expert() {
             <div className="glass rounded-xl border border-primary/15">
               <button
                 onClick={() => setAnalysisExpanded(e => !e)}
-                className="w-full flex items-center justify-between p-5 text-left"
+                className="w-full flex items-center justify-between p-4 md:p-5 text-left"
               >
                 <div className="flex items-center gap-3">
                   {analysisInProgress ? (
@@ -283,7 +283,7 @@ export default function Expert() {
             {messages.length === 0 && (
               <div className="p-5 space-y-2">
                 <p className="text-xs text-muted-foreground mb-3 font-medium">PREGUNTAS SUGERIDAS:</p>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {SUGGESTED_QUESTIONS.map((q, i) => (
                     <button
                       key={i}
@@ -298,7 +298,7 @@ export default function Expert() {
             )}
 
             {messages.length > 0 && (
-              <div className="p-5 space-y-5 max-h-[500px] overflow-y-auto">
+              <div className="p-3 md:p-5 space-y-4 md:space-y-5 max-h-[400px] md:max-h-[500px] overflow-y-auto">
                 {messages.map((msg, i) => (
                   <div key={i} className={`flex gap-3 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                     {msg.role === "assistant" && (
